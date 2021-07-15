@@ -18,8 +18,8 @@ t = Tokenizer()
 token = t.tokenize(txt)
 word_list = []
 for line in token:
-    tmp = re.split('\t', str(line))
-    if '名詞' in tmp[1]:
+    tmp = re.split('\t|,', str(line))
+    if tmp[1] in "名詞":
         word_list.append(tmp[0])
 words = " ".join(word_list)
 print(words)
